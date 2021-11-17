@@ -1,5 +1,5 @@
 import { getApp, initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, query, where, limit, DocumentSnapshot } from "firebase/firestore";
+import { getFirestore, collection, getDocs, query, where, limit, DocumentSnapshot, Timestamp } from "firebase/firestore";
 import "firebase/storage";
 
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
@@ -39,6 +39,8 @@ export function postToJSON(doc: DocumentSnapshot) {
     updatedAt: data?.updatedAt.toMillis() || 0,
   };
 }
+
+export const fromMillis = Timestamp.fromMillis;
 
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth();
