@@ -12,7 +12,6 @@ export async function getServerSideProps({ query: urlQuery }) {
 
   // If no user, short circuit to 404 page
   if (!userDoc) {
-    alert('no user found' + username)
     return {
       notFound: true,
     };
