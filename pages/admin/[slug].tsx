@@ -1,7 +1,7 @@
 import ReactMarkdown from "react-markdown";
 import Link from "next/link";
 import toast from "react-hot-toast";
-import { doc, collection, serverTimestamp } from "firebase/firestore";
+import { doc, serverTimestamp, deleteDoc, updateDoc } from "firebase/firestore";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { useDocumentDataOnce } from "react-firebase-hooks/firestore";
@@ -86,7 +86,7 @@ function PostForm({ defaultValues, postRef, preview }) {
   const { isValid, isDirty } = formState;
 
   const updatePost = async ({ content, published }) => {
-    await postRef.update({
+    await updateDoc(postRef, {
       content,
       published,
       updatedAt: serverTimestamp(),
@@ -147,7 +147,7 @@ function DeletePostButton({ postRef }) {
   const deletePost = async () => {
     const doIt = confirm("are you sure!");
     if (doIt) {
-      await postRef.delete();
+      await deleteDoc(postRef);
       router.push("/admin");
       toast("post annihilated ", { icon: "🗑️" });
     }
