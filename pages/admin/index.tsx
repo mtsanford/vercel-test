@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react';
 import { useRouter } from 'next/router';
-import { serverTimestamp, collection, query, orderBy, doc } from "firebase/firestore";
+import { serverTimestamp, collection, query, orderBy, doc, setDoc } from "firebase/firestore";
 import { useCollection } from 'react-firebase-hooks/firestore';
 import toast from 'react-hot-toast';
 import kebabCase from 'lodash.kebabcase';
@@ -52,29 +52,26 @@ function CreateNewPost() {
   // Create a new post in firestore
   const createPost = async (e) => {
     e.preventDefault();
-    // const uid = auth.currentUser.uid;
-    // const ref = firestore
-    //   .collection("users")
-    //   .doc(uid)
-    //   .collection("posts")
-    //   .doc(slug);
 
-    // // Tip: give all fields a default value here
-    // const data = {
-    //   title,
-    //   slug,
-    //   uid,
-    //   username,
-    //   published: false,
-    //   content: "# hello world!",
-    //   createdAt: serverTimestamp(),
-    //   updatedAt: serverTimestamp(),
-    //   heartCount: 0,
-    // };
+    const uid = auth.currentUser.uid;
+    const newPostRef = doc(firestore, "users", auth.currentUser.uid, "posts", slug);
 
-    // await ref.set(data);
+    // Tip: give all fields a default value here
+    const data = {
+      title,
+      slug,
+      uid,
+      username,
+      published: false,
+      content: "# hello world!",
+      createdAt: serverTimestamp(),
+      updatedAt: serverTimestamp(),
+      heartCount: 0,
+    };
 
-    // toast.success("Post created!");
+    await setDoc(newPostRef, data);
+
+    toast.success("Post created!");
 
     // Imperative navigation after doc is set
     router.push(`/admin/${slug}`);
