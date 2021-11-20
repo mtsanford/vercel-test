@@ -11,7 +11,7 @@ import { firestore, auth } from "../../lib/firebase";
 
 import AuthCheck from "../../components/AuthCheck";
 
-// import ImageUploader from "../../components/ImageUploader";
+import ImageUploader from "../../components/ImageUploader";
 
 import styles from "../../styles/Admin.module.css";
 
@@ -106,7 +106,7 @@ function PostForm({ defaultValues, postRef, preview }) {
       )}
 
       <div className={preview ? styles.hidden : styles.controls}>
-        {/* <ImageUploader /> */}
+        <ImageUploader />
 
         <textarea
           {...register("content", {

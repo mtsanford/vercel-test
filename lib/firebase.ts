@@ -1,6 +1,6 @@
-import { getApp, initializeApp } from "firebase/app";
+import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs, query, where, limit, DocumentSnapshot, Timestamp } from "firebase/firestore";
-import "firebase/storage";
+import { getStorage } from "firebase/storage";
 
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 
@@ -45,4 +45,5 @@ export const fromMillis = Timestamp.fromMillis;
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth();
 export const firestore = getFirestore();
+export const storage = getStorage();
 export const googleAuthProvider = new GoogleAuthProvider();
