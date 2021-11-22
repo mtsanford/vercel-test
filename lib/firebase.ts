@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs, query, where, limit, DocumentSnapshot, Timestamp } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
-import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDR2Kgo8hkISrTvtzWvd8NIh3X4eWcEpUo",
@@ -13,14 +13,6 @@ const firebaseConfig = {
   appId: "1:234801471454:web:cde0b5a887edea942e874f",
   measurementId: "G-QNQPZ4W3T6",
 };
-
-// if (!firebase.apps.length) {
-//   firebase.initializeApp(firebaseConfig);
-// }
-
-// export const auth = firebase.auth();
-// export const firestore = firebase.firestore();
-// export const storage = firebase.storage();
 
 export async function getUserWithUsername(username: string) {
   const usersRef = collection(firestore, 'users');
@@ -46,4 +38,3 @@ export const app = initializeApp(firebaseConfig);
 export const auth = getAuth();
 export const firestore = getFirestore();
 export const storage = getStorage();
-export const googleAuthProvider = new GoogleAuthProvider();

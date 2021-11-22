@@ -5,7 +5,7 @@ import { useContext, useEffect, useState, useCallback } from "react";
 import { UserContext } from "../lib/context";
 import { app, firestore, auth } from "../lib/firebase";
 
-import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider, getAuth, signInWithPopup, signInAnonymously } from "firebase/auth";
 
 export default function EnterPage({}) {
   const { user, username } = useContext(UserContext);
@@ -40,9 +40,9 @@ export default function EnterPage({}) {
     return (
       <>
         <button className="btn-google" onClick={signInWithGoogle}>
-          <img src={"/google.png"} width="30px" /> Sign in with Google
+          <img src={"/google.png"} width="30px" alt=""/> Sign in with Google
         </button>
-        {/* <button onClick={() => auth.signInAnonymously()}>
+        {/* <button onClick={() => signInAnonymously(getAuth())}>
         Sign in Anonymously
       </button> */}
       </>

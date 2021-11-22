@@ -10,11 +10,8 @@ import {
 } from "firebase/firestore";
 
 import { firestore, postToJSON, fromMillis } from "../lib/firebase";
-import Head from "next/head";
-import Image from "next/image";
-import PostFeed from "../components/PostFeed";
-import styles from "../styles/Home.module.css";
 
+import PostFeed from "../components/PostFeed";
 import Metatags from "../components/Metatags";
 import Loader from "../components/Loader";
 
