@@ -1,0 +1,23 @@
+.imageGrid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+
+
+@media(max-width: 1500px) {
+    .item {
+        width: 33.33%;
+        aspect-ratio: 4/5;
+    }    
+}
+
+@media(min-width: 1501px) {
+    .item {
+        width: 25%;
+        aspect-ratio: 4/5;
+    }    
+}
+
+
