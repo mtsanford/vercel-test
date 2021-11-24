@@ -5,14 +5,14 @@ import styles from "../styles/ImageGrid.module.css";
 
 function ImageGrid(props) {
   return (
-    <div className={styles.imageGrid}>
+    <div className={`${styles.imageGrid} ${styles[props.orientation]}`}>
       {dummyimages.map((image) => (
-          <EssentialRectImg
-            src={image.image}
-            essentialRect={image.essentialRect}
-            className={styles.item}
-            key={image.id}
-          />
+        <EssentialRectImg
+          src={image.image}
+          essentialRect={image.essentialRect}
+          className={styles.item}
+          key={image.id}
+        />
       ))}
     </div>
   );

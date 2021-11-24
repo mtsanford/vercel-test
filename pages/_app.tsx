@@ -2,19 +2,22 @@ import { Toaster } from "react-hot-toast";
 import Navbar from "../components/Navbar";
 import { UserContext } from "../lib/context";
 import { useUserData } from "../lib/hooks";
+import UIContextProvider from "../store/UIContext";
 
 import "../styles/globals.css";
 import "react-essentialrect/dist/essentialrect-img.css";
 
 function MyApp({ Component, pageProps }) {
-  const {user, username} = useUserData();
+  const { user, username } = useUserData();
 
   return (
-    <UserContext.Provider value={{ user, username}}>
-      <Navbar />
-      <Component {...pageProps} />
-      <Toaster />
-    </UserContext.Provider>
+    <UIContextProvider>
+      <UserContext.Provider value={{ user, username }}>
+        <Navbar />
+        <Component {...pageProps} />
+        <Toaster />
+      </UserContext.Provider>
+    </UIContextProvider>
   );
 }
 

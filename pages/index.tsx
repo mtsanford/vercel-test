@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import {
   collectionGroup,
   query,
@@ -8,6 +8,8 @@ import {
   getDocs,
   startAfter,
 } from "firebase/firestore";
+
+import { UIContext, Orientation } from "../store/UIContext";
 
 import { firestore, postToJSON, fromMillis } from "../lib/firebase";
 
@@ -35,6 +37,7 @@ const LIMIT = 1;
 // }
 
 export default function Home(props) {
+  const { orientation } = useContext(UIContext);
   const [posts, setPosts] = useState(props.posts);
   const [loading, setLoading] = useState(false);
   const [postsEnd, setPostsEnd] = useState(false);
@@ -82,7 +85,7 @@ export default function Home(props) {
         description="Get the latest posts on our site"
       />
 
-      { showImages && <ImageGrid /> }
+      { showImages && <ImageGrid orientation={orientation} /> }
 
       {/* <PostFeed posts={posts} admin={false} /> */}
 

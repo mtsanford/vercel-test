@@ -3,21 +3,38 @@
     flex-wrap: wrap;
 }
 
+.portrait .item {
+    width: 33.33%;
+    aspect-ratio: 4 / 5;
+}
 
-
+.landscape .item {
+    width: 50%;
+    aspect-ratio: 1.91;
+}
 
 @media(max-width: 1500px) {
-    .item {
+    .portrait .item {
         width: 33.33%;
-        aspect-ratio: 4/5;
-    }    
+        aspect-ratio: 4 / 5;
+    }
+    
+    .landscape .item {
+        width: 50%;
+        aspect-ratio: 1.91;
+    }
 }
 
 @media(min-width: 1501px) {
-    .item {
+    .portrait .item {
         width: 25%;
-        aspect-ratio: 4/5;
-    }    
+        aspect-ratio: 4 / 5;
+    }
+    
+    .landscape .item {
+        width: 33.33%;
+        aspect-ratio: 1.91;
+    }
 }
 
 

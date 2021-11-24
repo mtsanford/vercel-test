@@ -1,8 +1,21 @@
+
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { auth } from "../lib/firebase";
 import { useContext } from "react";
 import { UserContext } from "../lib/context";
-import { auth } from "../lib/firebase";
+import { UIContext, Orientation } from "../store/UIContext";
+
+function OrientationToggle() {
+  const { orientation, setOrientation } = useContext(UIContext);
+  const toggleValue: Orientation = orientation === 'portrait' ? 'landscape' : 'portrait';
+
+  const onToggle = () => {
+    setOrientation(toggleValue);
+  }
+
+  return <span onClick={onToggle} style={{ cursor: 'pointer' }}>{toggleValue}</span>
+}
 
 // Top navbar
 export default function Navbar() {
@@ -18,10 +31,13 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <ul>
-        <li>
+      <li>
           <Link href="/">
             <button className="btn-logo">Reactive Image</button>
           </Link>
+        </li>
+        <li>
+          <OrientationToggle />
         </li>
 
         {/* user is signed-in and has username */}
