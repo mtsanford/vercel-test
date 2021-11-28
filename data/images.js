@@ -10,6 +10,11 @@ const images = [
     essentialRect: {left:386, top:109, width:644, height:628},
   },
   {
+    image: "https://firebasestorage.googleapis.com/v0/b/next-firebase-demo-fb50c.appspot.com/o/erpics%2Fski.jpg?alt=media&token=aab5cfbf-9c18-4013-b89b-6840cdd43094",
+    id: 10,
+    essentialRect: {left:0, top:399, width:880, height:460},
+  },
+  {
     image: "https://firebasestorage.googleapis.com/v0/b/next-firebase-demo-fb50c.appspot.com/o/erpics%2F20150420_090227.jpg?alt=media&token=cd80112c-c6a6-493a-a55f-eba0aa95bc0c",
     id: 3,
     essentialRect: {left:144, top:65, width:576, height:628},
@@ -91,16 +96,6 @@ const images = [
       left: 200,
       width: 400,
       height: 300,
-    },
-  },
-  {
-    image: "https://picsum.photos/id/133/800/600",
-    id: 133,
-    essentialRect: {
-      top: 100,
-      left: 500,
-      width: 300,
-      height: 410,
     },
   },
 ];
